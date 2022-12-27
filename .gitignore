@@ -1,2 +1,3 @@
 ENV/
 output.pdf
+.DS_Store
