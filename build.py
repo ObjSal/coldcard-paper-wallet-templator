@@ -167,6 +167,14 @@ class WalletBuilder(TemplateBuilder):
             x = 1.5*inch
             self.addr_qr(x, 7.5*inch, 2*inch)
             self.privkey_qr(x, 1.1*inch, 2*inch)
+            
+        elif template_name == 'satoshi_paper_wallet':
+            x = 1.3*inch
+            self.add_qr_spot('addr', None, x, 4.3*inch, 0.95*inch)
+            self.address_at(x + (0.95*inch) + (0.12*inch), 4.36*inch, font_size = 7.5)
+            
+            self.add_qr_spot('pk', None, x + (4.96*inch), 5.73*inch, 0.95*inch)
+            self.privkey_at(x + (4.96*inch) - (1.87*inch), 5.73*inch + (0.99*inch), font_size = 6.5)
 
         else:
             print(f"\n\nDefine code for: {template_name}\n\n")
@@ -325,7 +333,7 @@ def file_checker(fname):
 
 if __name__ == '__main__':
 
-    for fn in [ 'coldcard-paper', 'placeholder']:
+    for fn in [ 'coldcard-paper', 'placeholder', 'satoshi_paper_wallet']:
 
         outfile = f'outputs/{fn}.pdf'
 
